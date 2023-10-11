@@ -1,0 +1,102 @@
+:root {
+  --Orange: hsl(26, 100%, 55%);
+  --Pale_orange: hsl(25, 100%, 94%);
+  --Very_dark_blue: hsl(220, 13%, 13%);
+  --Dark_grayish_blue: hsl(219, 9%, 45%);
+  --Grayish_blue: hsl(220, 14%, 75%);
+  --Light_grayish_blue: hsl(223, 64%, 98%);
+  --White: hsl(0, 0%, 100%);
+  --Black: hsl(0, 0%, 0%);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+nav ul:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+nav ul:nth-child(2) {
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+  width: 60%;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+a {
+  text-decoration: none;
+  position: relative;
+  color: var(--Dark_grayish_blue);
+  padding: 2rem 0;
+  font-size: clamp(12px, 1.5vw, 20px);
+}
+a::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  position: absolute;
+  background-color: var(--Orange);
+  bottom: 0;
+  left: 0;
+  transition: 0.3s;
+}
+a:hover {
+  color: var(--Very_dark_blue);
+}
+a:hover::after {
+  width: 100%;
+}
+.shop-area img {
+  cursor: pointer;
+}
+#logo {
+  width: clamp(8rem, 12vw, 10rem);
+
+}
+.burg-logo{display: flex; 
+  gap: 1rem;
+}
+#profileIcon {
+  width: clamp(30px, 4vw, 50px);
+  cursor: pointer;
+  transition: none;
+}
+#profileIcon:hover {
+  outline: 3px solid var(--Orange);
+  border-radius: 50%;
+}
+#burguer {
+  display: none;
+}
+hr {
+  opacity: 0.3;
+}
+
+@media (max-width: 700px) {
+  #burguer {
+    display: block;
+    cursor: pointer;
+  }
+  nav ul:nth-child(1) {
+    flex-direction: column;
+    gap: .25rem;
+    align-items: start;
+    font-weight: 700;
+    background-color: red;
+  }
+  nav a{
+    padding: .3rem;
+  }
+  nav{padding: 1rem;}
+  nav ul:nth-child(2) {
+    flex-direction: row;
+    align-items: start;
+  }
+  .burg-logo{margin:0 0 3rem 0;}
+  hr{display: none;}
+}
