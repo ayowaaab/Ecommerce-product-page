@@ -1,9 +1,12 @@
-import Nav from "./NavBar/components/nav/Nav"
+import Nav from "./components/nav"
+import Product from "./components/product"
+
 
 function App() {
   return (
     <div>
       <Nav />
+      <Product />
     </div>
   )
 }

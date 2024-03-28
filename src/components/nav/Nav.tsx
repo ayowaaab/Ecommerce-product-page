@@ -1,4 +1,3 @@
-// import Shop from "../Shop/Shop";
 import "./Nav.css";
 
 function Nav() {
@@ -7,8 +6,8 @@ function Nav() {
       <nav>
         <ul>
           <div className="burg-logo">
-            <img src="src/icon-menu.svg" alt="burger" id="burguer" />
-            <img src="src/logo.svg" alt="logo-icon" id="logo" />
+            <img src="icon-menu.svg" alt="burger" id="burguer" />
+            <img src="logo.svg" alt="logo-icon" id="logo" />
           </div>
           <a href="#">Collections</a>
           <a href="#">Men</a>
@@ -18,13 +17,13 @@ function Nav() {
         </ul>
         <ul>
           <div className="shop-area">
-            <img src="src/icon-cart.svg" alt="Shop-icon" />
-            {/* <Shop /> */}
+            <img src="icon-cart.svg" alt="Shop-icon" />
           </div>
-          <img id="profileIcon" src="src/image-avatar.png" alt="Profile-icon" />
+          <img id="profileIcon" src="image-avatar.png" alt="Profile-icon" />
         </ul>
       </nav>
       <hr />
+      <br />
     </>
   );
 }
