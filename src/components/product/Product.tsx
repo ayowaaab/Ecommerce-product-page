@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./product.module.css";
 
 interface Props {
@@ -6,6 +7,13 @@ interface Props {
 }
 
 const Product = ({ product, thumbnail }: Props) => {
+  const [price, setPrice] = useState(0);
+  const plus = () => {
+    setPrice(price + 1);
+  };
+  const minus = () => {
+    price <= 0 ? setPrice(0) : setPrice(price - 1);
+  };
   return (
     <>
       <div className={styles.container}>
@@ -35,11 +43,11 @@ const Product = ({ product, thumbnail }: Props) => {
           </div>
           <div className={styles.shopSection}>
             <div className={styles.quantity}>
-              <button>
+              <button onClick={minus}>
                 <img src="icon-minus.svg" alt="minus" />
               </button>
-              <span>0</span>
-              <button>
+              <span id="price">{price}</span>
+              <button onClick={plus}>
                 <img src="icon-plus.svg" alt="plus" />
               </button>
             </div>
