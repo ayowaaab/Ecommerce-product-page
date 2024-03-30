@@ -1,16 +1,17 @@
-import "./Shop.css";
+import styles from "./Shop.module.css";
 
 function Shop() {
   return (
     <>
-      <div className="shop-box">
+      <div className={styles.shopBox}>
         <h3>Cart</h3>
+        <br />
         <hr />
-        <p>Your Cart is Empty</p>
+        <br />
+        <p>Your Cart is Empty </p>
       </div>
     </>
   );
-  
 }
 
 export default Shop;

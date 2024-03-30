@@ -4,19 +4,18 @@ nav {
   gap: 2rem;
   padding: 0.25rem 2rem;
 }
-nav ul:nth-child(1) {
+nav ul {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 nav ul:nth-child(2) {
-  display: flex;
-  justify-content: end;
-  gap: 2rem;
-  width: 60%;
-  align-items: center;
-  gap: 2rem;
   position: relative;
+  justify-content: end;
+  width: 60%;
+}
+nav ul:nth-child(2) img {
+  cursor: pointer;
 }
 a {
   text-decoration: none;
@@ -41,58 +40,75 @@ a:hover {
 a:hover::after {
   width: 100%;
 }
-.shop-area img {
-  cursor: pointer;
-}
 #logo {
   width: clamp(8rem, 12vw, 10rem);
 }
-.burg-logo {
+.burgLogo {
   display: flex;
   gap: 1rem;
 }
+
 #profileIcon {
   width: clamp(30px, 4vw, 50px);
-  cursor: pointer;
   transition: none;
 }
 #profileIcon:hover {
   outline: 3px solid var(--Orange);
   border-radius: 50%;
 }
-#burguer {
+#burguer,
+#close {
   display: none;
 }
 hr {
   opacity: 0.3;
 }
-
+.notif {
+  position: absolute;
+  top: 0;
+  background-color: var(--Orange);
+  padding: 1px 5px;
+  font-size: 8px;
+  border-radius: 50%;
+  color: var(--White);
+}
 @media (max-width: 700px) {
-  #burguer {
-    display: block;
+  #burguer,
+  #close {
     cursor: pointer;
-  }
-  nav ul:nth-child(1) {
-    flex-direction: column;
-    gap: 0.25rem;
-    align-items: start;
-    font-weight: 700;
-    background-color: red;
+    padding: 8px;
   }
   nav a {
     padding: 0.3rem;
+    color: var(--Black);
   }
   nav {
-    padding: 1rem;
+    padding: 0;
+    position: fixed;
+    height: 50px;
+    z-index: 1;
+    width: 100%;
+    background-color: white;
+  }
+  nav ul:nth-child(1) {
+    flex-direction: column;
+    background-color: var(--White);
+    height: 100vh;
+    padding: 10px;
+    width: 33.33%;
+    align-items: start;
+    font-weight: 600;
   }
   nav ul:nth-child(2) {
-    flex-direction: row;
-    align-items: start;
+    padding: 1rem;
   }
-  .burg-logo {
+  .burgLogo {
     margin: 0 0 3rem 0;
   }
   hr {
+    display: none;
+  }
+  #logo {
     display: none;
   }
 }
