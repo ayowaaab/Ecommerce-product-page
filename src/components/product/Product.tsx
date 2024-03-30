@@ -1,5 +1,4 @@
 import "./product.css";
-import { FiShoppingCart } from "react-icons/fi";
 
 const Product = () => {
   const thumbnail = [
@@ -20,11 +19,7 @@ const Product = () => {
         <div className="all-images">
           <img className="arrows" src="icon-next.svg" alt="" />
           <img className="arrows" src="icon-previous.svg" alt="" />
-          <img
-            src="image-product-1.jpg"
-            alt="mainProduct"
-            className="product"
-          />
+          <img src={product[0]} alt="mainProduct" className="product" />
           <div className="thumbnails">
             {thumbnail.map((el) => (
               <img src={el} alt="detail" />
