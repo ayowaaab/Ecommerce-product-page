@@ -11,7 +11,6 @@ interface Props {
 
 const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
   const [qte, setQte] = useState(0);
-  const [added, setAdded] = useState(false);
   const [show, setShow] = useState(false);
   const showUpdate = (x: boolean) => {
     setShow(x);
@@ -68,12 +67,7 @@ const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
               </button>
             </div>
             <button
-              onClick={() => {
-                setAdded(() => {
-                  addToCard(true);
-                  return true;
-                });
-              }}
+              onClick={() => addToCard(true)}
               disabled={qte === 0}
               className={styles.addToCardBtn}
             >
