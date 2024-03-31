@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./product.module.css";
+import ShowProduct from "./showProduct";
 
 interface Props {
   product: string[];
@@ -11,7 +12,10 @@ interface Props {
 const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
   const [qte, setQte] = useState(0);
   const [added, setAdded] = useState(false);
-
+  const [show, setShow] = useState(false);
+  const showUpdate = (x: boolean) => {
+    setShow(x);
+  };
   const plus = () => {
     setQte(qte + 1);
     updateQte(qte + 1);
@@ -26,7 +30,12 @@ const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
         <div className={styles.allImages}>
           <img className={styles.arrows} src="icon-next.svg" alt="" />
           <img className={styles.arrows} src="icon-previous.svg" alt="" />
-          <img src={product[0]} alt="mainProduct" className={styles.product} />
+          <img
+            onClick={() => setShow(true)}
+            src={product[0]}
+            alt="mainProduct"
+            className={styles.product}
+          />
           <div className={styles.thumbnails}>
             {thumbnail.map((el) => (
               <img key={el} src={el} alt="detail" />
@@ -58,7 +67,12 @@ const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
               </button>
             </div>
             <button
-              onClick={() => { setAdded( prevadd => {addToCard(!prevadd); return !prevadd})}}
+              onClick={() => {
+                setAdded(() => {
+                  addToCard(true);
+                  return true;
+                });
+              }}
               className={styles.addToCardBtn}
             >
               <img id={styles.shopCard} src="icon-cart.svg" />
@@ -67,6 +81,7 @@ const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
           </div>
         </div>
       </div>
+      <ShowProduct show={show} updateShow={showUpdate} />
     </>
   );
 };

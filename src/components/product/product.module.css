@@ -5,10 +5,11 @@
 .container {
   display: flex;
   gap: 3rem;
-  width: 80%;
-  height: 500px;
+  width: 70%;
+  height: 400px;
   margin: 0 auto;
 }
+
 #shopCard {
   filter: brightness(0) saturate(100%) invert(99%) sepia(1%) saturate(689%)
     hue-rotate(202deg) brightness(119%) contrast(100%);
@@ -118,6 +119,7 @@ span.promo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
 }
 .thumbnails {
   display: flex;
@@ -126,6 +128,7 @@ span.promo {
 .thumbnails img {
   width: 70px;
   height: 70px;
+  cursor: pointer;
 }
 .arrows {
   position: absolute;

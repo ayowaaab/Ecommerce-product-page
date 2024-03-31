@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Nav from "./components/nav";
 import Product from "./components/product";
+import { product, thumbnail } from "./db";
 
 function App() {
   const [quantity, setQuatity] = useState(0);
@@ -11,18 +12,7 @@ function App() {
   const updateAdded = (x: boolean) => {
     setAdded(x);
   };
-  const thumbnail = [
-    "image-product-1-thumbnail.jpg",
-    "image-product-2-thumbnail.jpg",
-    "image-product-3-thumbnail.jpg",
-    "image-product-4-thumbnail.jpg",
-  ];
-  const product = [
-    "image-product-1.jpg",
-    "image-product-2.jpg",
-    "image-product-3.jpg",
-    "image-product-4.jpg",
-  ];
+
 
   return (
     <>

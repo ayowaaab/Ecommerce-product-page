@@ -10,10 +10,6 @@
   font-size: 16px;
   transition: 0.3s;
 }
-body {
-  width: 80%;
-  margin: 0 auto;
-}
 @media (max-width: 800px) {
   body {
     width: 100%;
