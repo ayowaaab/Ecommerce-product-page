@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./product.module.css";
-import ShowProduct from "./showProduct";
+import ShowProduct from "./ShowProduct";
 
 interface Props {
   product: string[];
