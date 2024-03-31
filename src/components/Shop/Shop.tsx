@@ -29,7 +29,11 @@ function Shop({ quantity, appearance, addToCard }: Props) {
                   </div>
                 </div>
               </div>
-              <button>Checkout</button>
+              <button
+                onClick={() => alert("Your Product will come to you Soon ❤")}
+              >
+                Checkout
+              </button>
             </div>
           )}
           {!addToCard && <p>Your Cart is Empty </p>}

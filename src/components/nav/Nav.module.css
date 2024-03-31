@@ -121,13 +121,14 @@ hr {
     z-index: 1;
     padding: 1rem;
     transform: translateX(-100%);
+    transition: 0.3s ease-in;
   }
   .mobileNav {
     display: flex;
     margin-bottom: 1rem;
   }
   #close {
-    margin: 2rem 0 1rem -0.75rem;
+    margin: 1rem 0 1rem -0.75rem;
     cursor: pointer;
     width: 50px;
     height: 50px;

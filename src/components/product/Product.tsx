@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./product.module.css";
 import ShowProduct from "./ShowProduct";
 
@@ -12,6 +12,19 @@ interface Props {
 const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
   const [qte, setQte] = useState(0);
   const [show, setShow] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [disableClick, setDisableClick] = useState(false);
+
+  useEffect(() => {
+    function handleWindowResize() {
+      window.innerWidth < 768 ? setDisableClick(false) : setDisableClick(true);
+    }
+    handleWindowResize();
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
   const showUpdate = (x: boolean) => {
     setShow(x);
   };
@@ -28,17 +41,33 @@ const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
     <>
       <div className={styles.container}>
         <div className={styles.allImages}>
-          <img className={styles.arrows} src="icon-next.svg" alt="" />
-          <img className={styles.arrows} src="icon-previous.svg" alt="" />
+          <img
+            onClick={() => (index >= 3 ? setIndex(0) : setIndex(index + 1))}
+            className={styles.arrows}
+            src="icon-next.svg"
+            alt="next"
+          />
+          <img
+            onClick={() => (index <= 0 ? setIndex(3) : setIndex(index - 1))}
+            className={styles.arrows}
+            src="icon-previous.svg"
+            alt="previous"
+          />
           <img
             onClick={() => setShow(true)}
-            src={product[0]}
+            src={product[index]}
             alt="mainProduct"
             className={styles.product}
           />
           <div className={styles.thumbnails}>
-            {thumbnail.map((el) => (
-              <img key={el} src={el} alt="detail" />
+            {thumbnail.map((el, i) => (
+              <img
+                className={index === i ? styles.active : ""}
+                onClick={() => setIndex(i)}
+                key={el}
+                src={el}
+                alt="Thumbs"
+              />
             ))}
           </div>
         </div>
@@ -77,7 +106,7 @@ const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
           </div>
         </div>
       </div>
-      <ShowProduct show={show} updateShow={showUpdate} />
+      {disableClick && <ShowProduct show={show} updateShow={showUpdate} />}
     </>
   );
 };

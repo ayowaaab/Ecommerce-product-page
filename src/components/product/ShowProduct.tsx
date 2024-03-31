@@ -1,4 +1,5 @@
-import { thumbnail } from "../../db";
+import { useState } from "react";
+import { product, thumbnail } from "../../db";
 import styles from "./show.module.css";
 interface details {
   updateShow: (x: boolean) => void;
@@ -6,6 +7,7 @@ interface details {
 }
 
 const ShowProduct = ({ show, updateShow }: details) => {
+  const [index, setIndex] = useState(0);
   return (
     <>
       {show && (
@@ -19,15 +21,33 @@ const ShowProduct = ({ show, updateShow }: details) => {
               src="icon-close.svg"
               alt="closeIcon"
             />
-            <img id={styles.mainPicture} src="image-product-1.jpg" alt="img" />
+            <img id={styles.mainPicture} src={product[index]} alt="img" />
             <div className={styles.arrows}>
-              <img src="icon-previous.svg" alt="img" />
-              <img src="icon-next.svg" alt="img" />
+              <img
+                onClick={() => (index <= 0 ? setIndex(3) : setIndex(index - 1))}
+                src="icon-previous.svg"
+                alt="img"
+              />
+              <img
+                onClick={() => (index >= 3 ? setIndex(0) : setIndex(index + 1))}
+                src="icon-next.svg"
+                alt="img"
+              />
             </div>
           </div>
           <div className={styles.thumbnails}>
-            {thumbnail.map((el) => (
-              <img key={el} className={styles.thumb} src={el} alt="img" />
+            {thumbnail.map((el, i) => (
+              <img
+                onClick={() => setIndex(i)}
+                key={el}
+                className={
+                  i === index
+                    ? [styles.thumb, styles.active].join(" ")
+                    : styles.thumb
+                }
+                src={el}
+                alt="img"
+              />
             ))}
           </div>
         </div>
