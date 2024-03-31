@@ -23,6 +23,7 @@ const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
   const minus = () => {
     qte <= 0 ? setQte(0) : setQte(qte - 1);
     qte <= 0 ? updateQte(0) : updateQte(qte - 1);
+    qte <= 1 ? addToCard(false) : null;
   };
   return (
     <>
@@ -67,14 +68,13 @@ const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
               </button>
             </div>
             <button
-              
               onClick={() => {
                 setAdded(() => {
                   addToCard(true);
                   return true;
                 });
               }}
-              disabled ={qte === 0}
+              disabled={qte === 0}
               className={styles.addToCardBtn}
             >
               <img id={styles.shopCard} src="icon-cart.svg" />
