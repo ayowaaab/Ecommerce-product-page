@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Shop from "../Shop";
 import styles from "./Nav.module.css";
 interface Props {
@@ -7,15 +7,19 @@ interface Props {
 }
 function Nav({ quantity, added }: Props) {
   const [show, setShow] = useState(false);
+  const menuList = useRef<HTMLDivElement | null>(null);
+
+  const menuAction = (x: HTMLDivElement | null) => {
+    if (x) x.style.transform = "translateX(0%)";
+  };
+  const closeAction = (x: HTMLDivElement | null) => {
+    if (x) x.style.transform = "translateX(-100%)";
+  };
   return (
     <>
-      <nav>
-        <ul id={styles.ul}>
-          <div className={styles.burgLogo}>
-            <img src="icon-menu.svg" alt="burger" id={styles.burguer} />
-            <img src="icon-close.svg" alt="close" id={styles.close} />
-            <img src="logo.svg" alt="logo-icon" id={styles.logo} />
-          </div>
+      <nav className={styles.desktopNav}>
+        <ul>
+          <img src="logo.svg" alt="logo-icon" id={styles.logo} />
           <a href="#">Collections</a>
           <a href="#">Men</a>
           <a href="#">Women</a>
@@ -41,6 +45,47 @@ function Nav({ quantity, added }: Props) {
       </nav>
       <hr />
       <br />
+      <nav className={styles.mobileNav}>
+        <div className={styles.leftNav}>
+          <img
+            src="icon-menu.svg"
+            alt="logo-icon"
+            onClick={() => menuAction(menuList.current)}
+            id={styles.menu}
+          />
+          <img src="logo.svg" alt="logo-icon" id={styles.logo} />
+        </div>
+        <div className={styles.rightNav}>
+          <div style={{ position: "relative" }}>
+            <img
+              style={{ cursor: "pointer" }}
+              onClick={() => setShow(!show)}
+              src="icon-cart.svg"
+              alt="Shop-icon"
+            />
+            {added && <span className={styles.notif}>1</span>}
+          </div>
+          <img
+            id={styles.profileIcon}
+            src="image-avatar.png"
+            alt="Profile-icon"
+          />
+          <Shop addToCard={added} appearance={show} quantity={quantity} />
+        </div>
+        <div ref={menuList} className={styles.mobilNavList}>
+          <img
+            onClick={() => closeAction(menuList.current)}
+            src="icon-close.svg"
+            alt="close"
+            id={styles.close}
+          />
+          <a href="#">Collections</a>
+          <a href="#">Men</a>
+          <a href="#">Women</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+      </nav>
     </>
   );
 }

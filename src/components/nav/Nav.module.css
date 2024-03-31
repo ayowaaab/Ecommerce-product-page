@@ -15,6 +15,7 @@ nav ul:nth-child(2) {
   position: relative;
   justify-content: end;
   width: 60%;
+  gap: 2rem;
 }
 nav ul:nth-child(2) img {
   cursor: pointer;
@@ -43,11 +44,7 @@ a:hover::after {
   width: 100%;
 }
 #logo {
-  width: clamp(8rem, 12vw, 10rem);
-}
-.burgLogo {
-  display: flex;
-  gap: 1rem;
+  width: clamp(7rem, 12vw, 10rem);
 }
 
 #profileIcon {
@@ -58,10 +55,7 @@ a:hover::after {
   outline: 3px solid var(--Orange);
   border-radius: 50%;
 }
-#burguer,
-#close {
-  display: none;
-}
+
 hr {
   opacity: 0.3;
   width: 80%;
@@ -77,44 +71,82 @@ hr {
   border-radius: 50%;
   color: var(--White);
 }
+.mobileNav {
+  display: none;
+}
 
-@media (max-width: 700px) {
-  #burguer,
-  #close {
-    cursor: pointer;
-    padding: 8px;
-  }
+@media (max-width: 786px) {
   nav a {
     padding: 0.3rem;
     color: var(--Black);
   }
   nav {
-    padding: 0;
+    padding: 0 1erm;
     position: fixed;
     height: 50px;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     background-color: white;
   }
-  nav ul:nth-child(1) {
-    flex-direction: column;
-    background-color: var(--White);
-    height: 100vh;
-    padding: 10px;
-    width: 33.33%;
-    align-items: start;
-    font-weight: 600;
-  }
   nav ul:nth-child(2) {
-    padding: 1rem;
+    gap: 1rem;
   }
-  .burgLogo {
-    margin: 0 0 3rem 0;
-  }
+
   hr {
     display: none;
   }
   #logo {
+    display: block;
+  }
+}
+
+@media (max-width: 786px) {
+  nav {
+    position: relative;
+  }
+  .desktopNav {
     display: none;
+  }
+  .mobilNavList {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: start;
+    background-color: white;
+    height: 100vh;
+    width: 40%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 1rem;
+    transform: translateX(-100%);
+  }
+  .mobileNav {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  #close {
+    margin: 2rem 0 1rem -0.75rem;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    padding: 1rem;
+  }
+  #menu {
+    padding: 1rem;
+    cursor: pointer;
+    width: 60px;
+    height: 50px;
+  }
+  .leftNav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .rightNav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 }

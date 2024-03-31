@@ -9,7 +9,11 @@
   height: 400px;
   margin: 0 auto;
 }
-
+.addToCardBtn:disabled {
+  background-color: rgba(128, 128, 128, 0.591);
+  cursor: not-allowed;
+  box-shadow: none !important;
+}
 #shopCard {
   filter: brightness(0) saturate(100%) invert(99%) sepia(1%) saturate(689%)
     hue-rotate(202deg) brightness(119%) contrast(100%);

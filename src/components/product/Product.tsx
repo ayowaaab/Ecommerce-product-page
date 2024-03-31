@@ -67,12 +67,14 @@ const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
               </button>
             </div>
             <button
+              
               onClick={() => {
                 setAdded(() => {
                   addToCard(true);
                   return true;
                 });
               }}
+              disabled ={qte === 0}
               className={styles.addToCardBtn}
             >
               <img id={styles.shopCard} src="icon-cart.svg" />
