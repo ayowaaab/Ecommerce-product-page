@@ -1,7 +1,12 @@
+import { useState } from "react";
 import Shop from "../Shop";
 import styles from "./Nav.module.css";
-
-function Nav() {
+interface Props {
+  quantity: number;
+  added: boolean;
+}
+function Nav({ quantity, added }: Props) {
+  const [show, setShow] = useState(false);
   return (
     <>
       <nav>
@@ -19,9 +24,12 @@ function Nav() {
         </ul>
         <ul>
           <div style={{ position: "relative" }}>
-            <img src="icon-cart.svg" alt="Shop-icon" />
-            <span className={styles.notif}>1</span>
-            <Shop />
+            <img
+              onClick={() => setShow(!show)}
+              src="icon-cart.svg"
+              alt="Shop-icon"
+            />
+            {added && <span className={styles.notif}>1</span>}
           </div>
           <img
             id={styles.profileIcon}
@@ -29,6 +37,7 @@ function Nav() {
             alt="Profile-icon"
           />
         </ul>
+        <Shop addToCard={added} appearance={show} quantity={quantity} />
       </nav>
       <hr />
       <br />

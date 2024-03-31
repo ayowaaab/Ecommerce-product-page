@@ -5,11 +5,10 @@
   padding: 1rem 20px 2rem 20px;
   margin-top: 1.5rem;
   position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translateX(-50%);
   background-color: white;
   z-index: 1;
+  right: calc(3vw + 10rem);
+  top: calc(2vw + 2rem);
 }
 .shopBox h3 {
   color: var(--Very_dark_blue);
@@ -63,4 +62,9 @@ span {
 }
 
 @media (max-width: 900px) {
+  .shopBox {
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

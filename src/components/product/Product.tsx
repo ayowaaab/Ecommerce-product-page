@@ -4,15 +4,21 @@ import styles from "./product.module.css";
 interface Props {
   product: string[];
   thumbnail: string[];
+  updateQte: (x: number) => void;
+  addToCard: (x: boolean) => void;
 }
 
-const Product = ({ product, thumbnail }: Props) => {
-  const [price, setPrice] = useState(0);
+const Product = ({ product, thumbnail, updateQte, addToCard }: Props) => {
+  const [qte, setQte] = useState(0);
+  const [added, setAdded] = useState(false);
+
   const plus = () => {
-    setPrice(price + 1);
+    setQte(qte + 1);
+    updateQte(qte + 1);
   };
   const minus = () => {
-    price <= 0 ? setPrice(0) : setPrice(price - 1);
+    qte <= 0 ? setQte(0) : setQte(qte - 1);
+    qte <= 0 ? updateQte(0) : updateQte(qte - 1);
   };
   return (
     <>
@@ -46,12 +52,15 @@ const Product = ({ product, thumbnail }: Props) => {
               <button onClick={minus}>
                 <img src="icon-minus.svg" alt="minus" />
               </button>
-              <span id="price">{price}</span>
+              <span>{qte}</span>
               <button onClick={plus}>
                 <img src="icon-plus.svg" alt="plus" />
               </button>
             </div>
-            <button className={styles.addToCardBtn}>
+            <button
+              onClick={() => { setAdded( prevadd => {addToCard(!prevadd); return !prevadd})}}
+              className={styles.addToCardBtn}
+            >
               <img id={styles.shopCard} src="icon-cart.svg" />
               Add to card
             </button>

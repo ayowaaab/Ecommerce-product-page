@@ -65,13 +65,15 @@ hr {
 }
 .notif {
   position: absolute;
-  top: 0;
+  top: -8px;
+  left: 10px;
   background-color: var(--Orange);
   padding: 1px 5px;
   font-size: 8px;
   border-radius: 50%;
   color: var(--White);
 }
+
 @media (max-width: 700px) {
   #burguer,
   #close {
