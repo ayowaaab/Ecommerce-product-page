@@ -22,26 +22,26 @@ npm run dev
 
 # Desktop Design
 
-<div style="display:flex;gap:10px">
-<img src="active-states-basket-empty.jpg" width="50%">
-<img src="active-states-basket-filled.jpg" width="50%">
-</div>
+<p float="left">
+<img src="active-states-basket-empty.jpg" width="400px">
+<img src="active-states-basket-filled.jpg" width="400px">
+</p>
 <br>
 <div style="display:flex;gap:10px">
-<img src="active-states-lightbox.jpg" width="50%">
-<img src="desktop-design.jpg" width="50%">
+<img src="active-states-lightbox.jpg" width="400px">
+<img src="desktop-design.jpg" width="400px">
 </div>
 <br><br>
 
 # Mobile Design
 
 <div style="display:flex;gap:10px">
-<img src="mobile-menu.jpg" width="50%">
-<img src="mobile-design.jpg" width="50%">
+<img src="mobile-menu.jpg" width="400px">
+<img src="mobile-design.jpg" width="400px">
 </div>
 <br>
 <div style="display:flex;gap:10px">
-<img src="mobile-design-basket-empty.jpg" width="50%">
-<img src="mobile-design-basket-filled.jpg" width="50%">
+<img src="mobile-design-basket-empty.jpg" width="400px">
+<img src="mobile-design-basket-filled.jpg" width="400px">
 </div>
 
