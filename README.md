@@ -1,27 +1,47 @@
-# React + TypeScript + Vite
+# E-commerce Product Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a challenge from front end monitor to improve my <b>FrontEnd Skills</b>
+in this project you'll have one page that represents a single product
+under this paragraph you'll find the design that represnts the app
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+first clone the repository and then open your terminal and download all the <b>dependencies</b>
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```javascript
+npm i
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+then run the project by writing in terminal
+
+```javascript
+npm run dev
+```
+
+<br>
+
+# Desktop Design
+
+<div style="display:flex;gap:10px">
+<img src="active-states-basket-empty.jpg" width="50%">
+<img src="active-states-basket-filled.jpg" width="50%">
+</div>
+<br>
+<div style="display:flex;gap:10px">
+<img src="active-states-lightbox.jpg" width="50%">
+<img src="desktop-design.jpg" width="50%">
+</div>
+<br><br>
+
+# Mobile Design
+
+<div style="display:flex;gap:10px">
+<img src="mobile-menu.jpg" width="50%">
+<img src="mobile-design.jpg" width="50%">
+</div>
+<br>
+<div style="display:flex;gap:10px">
+<img src="mobile-design-basket-empty.jpg" width="50%">
+<img src="mobile-design-basket-filled.jpg" width="50%">
+</div>
+
