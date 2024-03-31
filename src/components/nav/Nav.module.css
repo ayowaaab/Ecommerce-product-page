@@ -5,6 +5,7 @@ nav {
   padding: 0.25rem 2rem;
   width: 80%;
   margin: 0 auto;
+  height: 80px;
 }
 nav ul {
   display: flex;

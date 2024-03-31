@@ -4,10 +4,10 @@
 }
 .container {
   display: flex;
-  align-items: start;
+  align-items: center;
   gap: 3rem;
   width: 70%;
-  height: 400px;
+  height: calc(100vh - 120px);
   margin: 0 auto;
 }
 .details {
@@ -133,8 +133,8 @@ span.promo {
   justify-content: space-between;
 }
 .thumbnails img {
-  width: 70px;
-  height: 70px;
+  width: clamp(50px, 3.5vw, 80px);
+  height: clamp(50px, 3.5vw, 80px);
   cursor: pointer;
   position: relative;
 }
@@ -144,7 +144,7 @@ span.promo {
 .active {
   opacity: 0.7;
   outline: 3px solid var(--Orange);
-  transition: 0!important;
+  transition: 0 !important;
 }
 .arrows {
   position: absolute;
